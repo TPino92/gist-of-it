@@ -4,7 +4,14 @@ Introductory paragraph (replace this with your text)
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.  
+Matching a Hex Value – /^#?([a-f0-9]{6}|[a-f0-9]{3})$/  
+
+Matching an Email – /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/  
+
+Matching a URL – /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+
+Matching an HTML Tag – /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/  
 
 ## Table of Contents
 
