@@ -40,7 +40,7 @@ Which is used to match a single character that is a digit from 0-9. This will on
 This Regex has 3 Groupings.  
 
 The first Grouping used here is `([a-z0-9_\.-]+)` which matches the user's "email name".  
-  
+
 The second Grouping is `([\da-z\.-]+)` which matches the "email provider".  
   
 Finally we have the third Grouping `([a-z\.]{2,6})` to capture the `.com`.
@@ -49,11 +49,11 @@ Finally we have the third Grouping `([a-z\.]{2,6})` to capture the `.com`.
 
 Thinking back to the Groupings we had a few Bracked Expressions in this Regex.  
   
-The first Grouping had the Bracked Expression of `[a-z0-9_\.-]`. This is used to match any case senstive letter a-z, any character 0-9, and lastly it matches the characters '_', '.' and '-'.  
+The first Grouping had the Bracked Expression of `[a-z0-9_\.-]`. This is used to match any case senstive letter a-z, any character 0-9, and lastly it matches the characters '_', '.' and '-'. It can take in "trevorpino" but will not allow "trevor%pino" because we never gave it access to the special character "%".
 
-The second Grouping had the Bracked Expression of `[\da-z\.-]`. This is used to match any single digit from 0-9, any case senstive letter a-z, but this time only the extra characters "." and "-".    
+The second Grouping had the Bracked Expression of `[\da-z\.-]`. This is used to match any single digit from 0-9, any case senstive letter a-z, but this time only the extra characters "." and "-". It can take in "gmail" but will not allow "g_mail" because we never gave it access to the special character "_".   
 
-Lastly the third Grouping `[a-z\.]` is going to match any case senstive letter a-z and only the extra character ".". 
+Lastly the third Grouping `([a-z\.]{2,6})` is taking the Bracketed Expression `[a-z\.]` going to match any case senstive letter a-z and only the extra character ".", requiring at least 2 characters but no more then 6. So your typical ".com" will work but something strange like ".dino_suars" wouldn't as it's both to long and contains a invalid character.
 
 ### Greedy and Lazy Match  
 
