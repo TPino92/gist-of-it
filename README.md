@@ -19,9 +19,9 @@ Wikipedia defines a Regular Expression, Regex for short, as "a sequence of chara
 
 ### Anchors  
 
-This Regex uses the Anchors `^ ` and `$`.   
+This Regex uses the Anchors `^` and `$`.   
 
-The Anchor `^ ` is used to specify the beginning of the string and `$` to specify the ending of the string. Since the multiline option is not enabled,`(m)`, the regex will end at `$`.
+The Anchor `^` is used to specify the beginning of the string and `$` to specify the ending of the string. Since the multiline option is not enabled,`(m)`, the regex will end at `$`.
 
 ### Quantifiers  
 
