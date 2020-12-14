@@ -1,56 +1,66 @@
-# Title (replace with your title)
+# Regex for Matching an Email
 
-Introductory paragraph (replace this with your text)
+In this gist we are going to explain the use of a Regex, such as `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/` which can be used to match emails. This is especially  useful when you need to validate emails using packages like MongoDb or Inquirer.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.  
-Matching a Hex Value – /^#?([a-f0-9]{6}|[a-f0-9]{3})$/  
-
-Matching an Email – /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/  
-
-Matching a URL – /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
-
-Matching an HTML Tag – /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/  
+Wikipedia defines a Regular Expression, Regex for short, as "a sequence of characters that define a search pattern." This is commonly used for input validation, to find patterns within a string, find/replace characters within a string. Regular Expressions have many uses. However here we will go through how the components of this regex applies to matching an email. 
 
 ## Table of Contents
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
-### Anchors
+### Anchors  
 
-### Quantifiers
+This Regex uses the Anchors `^ ` and `$`.   
 
-### OR Operator
+The Anchor `^ ` is used to specify the beginning of the string and `$` to specify the ending of the string. Since the multiline option is not enabled,`(m)`, the regex will end at `$`.
 
-### Character Classes
+### Quantifiers  
 
-### Flags
+This Regex uses the Quantifier `+`and `{}`.  
+  
+In this instance,`+`, will join the users email name + email provider + `.com`. The other being `{2,6}`, which allows a match to range from 2-6 characters and provides a character set, more on these shortly, of `[a-z\.]`.
 
-### Grouping and Capturing
+### Character Classes  
 
-### Bracket Expressions
+This Regex only contains one Character Class `\d`  
+  
+Which is used to match a single character that is a digit from 0-9. This will only match a single digit such as 7. It does not allow for multiple digits like 777. 
 
-### Greedy and Lazy Match
+### Grouping and Capturing  
+  
+This Regex has 3 Groupings.  
 
-### Boundaries
+The first Grouping used here is `([a-z0-9_\.-]+)` which matches the user's "email name".  
+  
+The second Grouping is `([\da-z\.-]+)` which matches the "email provider".  
+  
+Finally we have the third Grouping `([a-z\.]{2,6})` to capture the `.com`.
 
-### Back-references
+### Bracket Expressions  
 
-### Look-ahead and Look-behind
+Thinking back to the Groupings we had a few Bracked Expressions in this Regex.  
+  
+The first Grouping had the Bracked Expression of `[a-z0-9_\.-]`. This is used to match any case senstive letter a-z, any character 0-9, and lastly it matches the characters '_', '.' and '-'.  
 
-## Author
+The second Grouping had the Bracked Expression of `[\da-z\.-]`. This is used to match any single digit from 0-9, any case senstive letter a-z, but this time only the extra characters "." and "-".    
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Lastly the third Grouping `[a-z\.]` is going to match any case senstive letter a-z and only the extra character ".". 
+
+### Greedy and Lazy Match  
+
+This Regrex does include Greedy Matches.  
+  
+The quantifiers `+` and `{}` are greedy operators, they are going to expand the match as far as they can through the provided text. `+` is going to match as many times as possible, giving back as needed. The other Quantifier used in this regex is `{}` when matching `{2,6}` for the last capture group.
+
+## Author  
+
+Come take a look at any of my other projects at https://github.com/TPino92 !
